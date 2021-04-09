@@ -1,5 +1,5 @@
 const Login = () => {
-    const url = "https://id.twitch.tv/oauth2/authorize?client_id="+process.env.REACT_APP_id+"&redirect_uri=http://localhost:300&response_type=code&scope=user:read:email"
+    const url = "https://id.twitch.tv/oauth2/authorize?client_id="+process.env.REACT_APP_id+"&redirect_uri=http://localhost:3000/&response_type=code&scope=user:read:email"
 
     return (
 
