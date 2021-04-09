@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function HomeButton() {
     return (
         <div >
-            <Link className="game_buttons" to="/">
+            <Link className="home_button" to="/">
                     Home
             </Link>
         </div>
