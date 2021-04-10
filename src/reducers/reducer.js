@@ -4,14 +4,16 @@ export default function manageGame(state = {
     loading: false, 
     user: "",
     image: "",
-    twitch_id: "",
-    action}) {
+    twitch_id: ""},
+    action) {
     switch (action.type) {
         case 'CREATE':
             
             return{
                 ...state,
-                user: 
+                name: action.name,
+                image: action.image,
+                twitch_id: action.twitch_id,
             }
         case 'LOADING':
             return {
@@ -21,7 +23,7 @@ export default function manageGame(state = {
         case 'POSTING':
             return {
           ...state,
-          user: action.user,
+          name: action.name,
           image: action.image,
           twitch_id: action.twitch_id,
           loading: false
