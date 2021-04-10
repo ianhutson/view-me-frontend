@@ -2,20 +2,28 @@ import userPoster from './helpers/userPoster'
 
 export default function manageGame(state = {
     loading: false, 
-    
-    action) {
+    user: "",
+    image: "",
+    twitch_id: "",
+    action}) {
     switch (action.type) {
-
+        case 'CREATE':
+            
+            return{
+                ...state,
+                user: 
+            }
         case 'LOADING':
             return {
           ...state,
-          scores: [...state.scores],
           loading: true
         }
         case 'POSTING':
             return {
           ...state,
-          scores: action.scores,
+          user: action.user,
+          image: action.image,
+          twitch_id: action.twitch_id,
           loading: false
         }
       default:

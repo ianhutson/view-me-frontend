@@ -10,8 +10,7 @@ function userPoster(name){
         },
         body: JSON.stringify({
             name: name,
-            image: image,
-            twitch_id: twitch_id
+
         })
     }
     fetch(url, configObj)
