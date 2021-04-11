@@ -10,8 +10,10 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.3",
+    "react-redux-oauth2": "^0.5.14",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "twitch-auth": "^4.5.5",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

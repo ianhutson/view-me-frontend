@@ -3,24 +3,26 @@ import Stream from './Stream'
 import Header from './Header'
 import Footer from './Footer'
 import Login from './Login'
+import { connect } from 'react-redux';
 
 class Home extends Component{
     constructor(props){ 
         super(props) 
     
       this.state = {
-        user:""
+        isLoggedIn:false, 
+        user: {}
       }
     }
     render(){
     return (
         <div>
             <Header/>
-            {this.state.user !== "" && <Stream/>}
-            {this.state.user == "" && <Login/>}
+            {Object.keys(this.state.user).length !== 0 && <Stream/>}
+            {Object.keys(this.state.user).length == 0 && <Login/>}
             <Footer/>
         </div>
         )
     }
 }
-export default (Home)
+export default connect()(Home)

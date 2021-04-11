@@ -2,7 +2,7 @@ import userPoster from './helpers/userPoster'
 
 export default function manageGame(state = {
     loading: false, 
-    user: "",
+    name: "",
     image: "",
     twitch_id: ""},
     action) {
