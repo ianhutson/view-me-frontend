@@ -1,5 +1,3 @@
-import userPoster from './helpers/userPoster'
-
 export default function manageGame(state = {
     loading: false, 
     name: "",

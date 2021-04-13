@@ -1,5 +1,5 @@
-export const fetchUser = () => {
-    const url = "http://localhost:3001/"
+export const createUser = () => {
+    const url = "http://localhost:3001/users"
     return (dispatch) => {
         dispatch({type:'LOADING'})
         fetch(url).then(response => {
