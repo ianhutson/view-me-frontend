@@ -7,9 +7,9 @@ class Login extends Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
   }
-
+  
   handleClick() {
-      this.props.store.loginWithDispatch()
+      this.props.loginWithDispatch()
     }
 
     handleLoading = () => {
@@ -18,11 +18,14 @@ class Login extends Component {
       }
     }
 render(){
+    const clientId = process.env.REACT_APP_id;  
+    const redirect = "http://localhost:3000/auth/twitch/callback"
+    const url = 'https://id.twitch.tv/oauth2/authorize?client_id=' + clientId + '&redirect_uri=' + redirect + '&response_type=code&scope=user:read:email';
     return (
     <div className="square">
       <image src="/img/logo.png" width="98" height="107" title="Logo" alt="Logo"></image>
       <p style={{color: 'black', fontSize: '35px'}}>Welcome to ViewMe! Please login. </p>
-      <a className="login_button" style={{width: '15%', margin: 'auto', textAlign: 'center'}}  onClick={() => this.handleClick} ><image src="/img/twitch.png">Login with Twitch</image></a>
+      <a className="login_button" style={{width: '15%', margin: 'auto', textAlign: 'center'}} href={url}  > <image src="/img/twitch.png">Login with Twitch</image></a>
     </div>)
     
     }

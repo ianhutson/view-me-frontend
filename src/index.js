@@ -6,9 +6,9 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk';
 import appReducer from './reducers/appReducer'
-import {reducer} from 'react-redux-oauth2'
 
-const store = createStore(combineReducers({ oauth: reducer, app: appReducer }), 
+
+const store = createStore(combineReducers({ app: appReducer }), 
   applyMiddleware(thunk)
 )
 
