@@ -172,7 +172,8 @@ h6{
 }
 
 .login_button:hover{
-  color: black
+  color: black;
+  cursor: pointer
 }
 
 .profile_container{

@@ -19,7 +19,7 @@ class Home extends Component{
         <div>
             <Header/>
             {Object.keys(this.state.user).length !== 0 && <Stream/>}
-            {Object.keys(this.state.user).length == 0 && <Login/>}
+            {Object.keys(this.state.user).length == 0 && <Login store={this.props}/>}
             <Footer/>
         </div>
         )

@@ -5,7 +5,7 @@ export default function manageGame(state = {
     twitch_id: ""},
     action) {
     switch (action.type) {
-        case 'CREATE':
+        case 'LOGIN':
             
             return{
                 ...state,

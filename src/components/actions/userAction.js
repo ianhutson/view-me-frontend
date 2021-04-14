@@ -1,4 +1,4 @@
-export const createUser = () => {
+export const login = () => {
     const url = "http://localhost:3001/users"
     return (dispatch) => {
         dispatch({type:'LOADING'})
