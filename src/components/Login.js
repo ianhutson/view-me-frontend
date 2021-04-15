@@ -19,7 +19,7 @@ class Login extends Component {
     }
 render(){
     const clientId = process.env.REACT_APP_id;  
-    const redirect = "http://localhost:3000/auth/twitch/callback"
+    const redirect = "http://localhost:3001/auth/twitch/callback"
     const url = 'https://id.twitch.tv/oauth2/authorize?client_id=' + clientId + '&redirect_uri=' + redirect + '&response_type=code&scope=user:read:email';
     return (
     <div className="square">
