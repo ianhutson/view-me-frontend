@@ -2,27 +2,46 @@ import React, { Component } from 'react';
 import Stream from './Stream'
 import Header from './Header'
 import Footer from './Footer'
-import Login from './Login'
+
 import { connect } from 'react-redux';
 
 class Home extends Component{
     constructor(props){ 
         super(props) 
-    
-      this.state = {
-        isLoggedIn:false, 
-        user: {}
-      }
     }
+
+    componentDidMount() {
+      const pull = window.location.search.split("=")[1]
+      if (pull !== undefined){
+      this.props.login(pull)}
+      else this.props.login("")
+      }
+    
+      handleLoading = () => {
+        if(this.props.loading) {
+          return <div>Loading...</div>
+        } else {
+          return <Stream user={this.props.user}/>
+        }
+      }
+
     render(){
     return (
         <div>
+          {console.log(this.props)}
             <Header/>
-            {Object.keys(this.state.user).length !== 0 && <Stream/>}
-            {Object.keys(this.state.user).length == 0 && <Login store={this.props}/>}
+            <Stream/>
             <Footer/>
         </div>
         )
     }
 }
-export default connect()(Home)
+
+const mapStateToProps = state => ({
+  id: state.id
+})
+
+const mapDispatchToProps = dispatch => ({
+  login: id => dispatch({type: 'LOGIN', id}),
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

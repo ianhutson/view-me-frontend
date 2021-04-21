@@ -5,13 +5,13 @@ export default function manageGame(state = {
     twitch_id: ""},
     action) {
     switch (action.type) {
+    
         case 'LOGIN':
-            
+          console.log(action.id)
             return{
                 ...state,
-                name: action.name,
-                image: action.image,
-                twitch_id: action.twitch_id,
+                twitch_id: action.id,
+                loading: true
             }
         case 'LOADING':
             return {

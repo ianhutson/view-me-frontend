@@ -1,28 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { TwitchEmbed} from 'react-twitch-embed';
 import Profile from './Profile'
+import Login from './Login'
+import { connect } from 'react-redux';
 
-const Stream = () => {
+class Stream extends Component {
+  render(){
   return (
     <div>
       <br></br>
-       <Profile/>
+
+      {this.props.twitch_id == undefined && <Login/>}
+       {this.props.twitch_id !== undefined && <Profile/>}
        <br></br>
       <center>
-       
-      <TwitchEmbed
+
+      {this.props.twitch_id !== undefined && <TwitchEmbed
+      
         channel="moonmoon"
         id="moonmoon"
         theme="dark"
-        muted
-        onVideoPause={() => console.log(':(')}
-      />
+      />}
       </center>
     </div>
   );
 }
+}
+const mapStateToProps = state => ({
+  id: state.twitch_id
+})
 
-export default (Stream)
+const mapDispatchToProps = dispatch => ({
+  login: id => dispatch({type: 'LOGIN', id}),
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Stream)
 
 
 

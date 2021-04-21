@@ -1,9 +1,5 @@
-import {userConstructor} from './userConstructor'
-
 export const login = () => {
-    const clientId = process.env.REACT_APP_id;  
-    const redirect = "http://localhost:3000/auth/twitch/callback"
-    const url = 'https://id.twitch.tv/oauth2/authorize?client_id=' + clientId + '&redirect_uri=' + encodeURIComponent(redirect) + '&response_type=token&scope=user:read:email';
+    const url = "http://localhost:3000/users"
     return (dispatch) => {
         
         dispatch({type:'LOADING'})
@@ -16,7 +12,7 @@ export const login = () => {
                 console.log(response.json())
             return response.json()
         }).then(responseJSON => {
-            userConstructor(responseJSON)
+           console.log(responseJSON)
             
         })
     }
