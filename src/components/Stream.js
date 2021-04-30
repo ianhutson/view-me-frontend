@@ -6,12 +6,12 @@ import { connect } from 'react-redux';
 
 class Stream extends Component {
   render(){
+    
   return (
     <div>
       <br></br>
 
-      {this.props.twitch_id == undefined && <Login/>}
-       {this.props.twitch_id !== undefined && <Profile/>}
+     
        <br></br>
       <center>
 
@@ -26,15 +26,11 @@ class Stream extends Component {
   );
 }
 }
-const mapStateToProps = state => ({
-  id: state.twitch_id
-})
-
-const mapDispatchToProps = dispatch => ({
-  login: id => dispatch({type: 'LOGIN', id}),
-})
-export default connect(mapStateToProps, mapDispatchToProps)(Stream)
+const mapStateToProps = state => {
+  return { loggedIn: Boolean(state.session.id) };
+}
 
 
 
+export default Stream
 

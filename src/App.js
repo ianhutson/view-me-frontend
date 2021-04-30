@@ -10,6 +10,7 @@ class App extends Component{
   
     }
   render(){
+    
   return (
     <div className='App'>
     <Router >
@@ -17,11 +18,13 @@ class App extends Component{
         <Route path="/about"><About/></Route>
           <Route path="/hearts"><Hearts/></Route>
           <Route path='/'><Home/></Route>
+          
         </Switch>
     </Router>
     </div>)
     }
 }
+// connect Auth to the redux state
 
 
 export default App;
