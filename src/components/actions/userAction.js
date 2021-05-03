@@ -1,3 +1,5 @@
+import * as Cookies from ‘js-cookie’
+
 export const login = () => {
     const url = "http://localhost:3000/users"
     return (dispatch) => {

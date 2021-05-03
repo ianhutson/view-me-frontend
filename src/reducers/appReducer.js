@@ -1,8 +1,13 @@
 export default function manageGame(state = {
     loading: false, 
-    name: "",
+    user: {
+      current: {},
+      valid: true,
+      authCompleted: false,
+      errors: {},
+      name: "",
     image: "",
-    twitch_id: ""},
+    twitch_id: ""}},
     action) {
     switch (action.type) {
     
