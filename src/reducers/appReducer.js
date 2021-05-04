@@ -11,25 +11,17 @@ export default function manageGame(state = {
     action) {
     switch (action.type) {
     
-        case 'LOGIN':
-          console.log(action.id)
-            return{
-                ...state,
-                twitch_id: action.id,
-                loading: true
-            }
-        case 'LOADING':
-            return {
-          ...state,
-          loading: true
+      case "LOGIN_USER":
+        return {
+          current: action.user,
+          valid: true,
+          errors: []
         }
-        case 'POSTING':
-            return {
-          ...state,
-          name: action.name,
-          image: action.image,
-          twitch_id: action.twitch_id,
-          loading: false
+      case "INVALID_USER":
+        return {
+          current: {},
+          valid: false,
+          errors: {...action.errors}
         }
       default:
         return state;
