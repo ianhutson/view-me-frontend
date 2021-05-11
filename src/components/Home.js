@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Stream from './Stream'
 import Header from './Header'
 import Footer from './Footer'
-
+import {currentUserFetch} from './actions/currentUserAction'
 import { connect } from 'react-redux';
 
 class Home extends Component{
@@ -11,10 +11,9 @@ class Home extends Component{
     }
 
     componentDidMount() {
-      const pull = window.location.search.split("=")[1]
-      if (pull !== undefined){
-      this.props.login(pull)}
-      else this.props.login("")
+      console.log(this.props)
+      currentUserFetch()
+      
       }
     
       handleLoading = () => {
@@ -28,7 +27,6 @@ class Home extends Component{
     render(){
     return (
         <div>
-          {console.log(this.props)}
             <Header/>
             <Stream/>
             <Footer/>
@@ -37,9 +35,11 @@ class Home extends Component{
     }
 }
 
-const mapStateToProps = state => ({
-  id: state.id
-})
+const mapStateToProps = (state) => {
+  return({
+    user: state.app.user
+  });
+ };
 
 const mapDispatchToProps = dispatch => ({
   login: id => dispatch({type: 'LOGIN', id}),

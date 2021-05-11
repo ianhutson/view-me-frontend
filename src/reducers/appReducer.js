@@ -36,6 +36,12 @@ export default function manageGame(state = {
             authCompleted: true,
             errors: {...state.errors}
           }
+        case 'LOADING_USER':
+          console.log(action)
+          return{
+            current: {...state.current},
+            user: action.payload
+          }
         default:
           return state
       }
