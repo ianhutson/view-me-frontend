@@ -2,19 +2,16 @@ import React, { Component } from 'react';
 import Stream from './Stream'
 import Header from './Header'
 import Footer from './Footer'
-import {currentUserFetch} from './actions/currentUserAction'
 import { connect } from 'react-redux';
+import {currentUserFetch} from './actions/currentUserAction'
 
 class Home extends Component{
     constructor(props){ 
         super(props) 
     }
-
-    componentDidMount() {
-      console.log(this.props)
-      currentUserFetch()
-      
-      }
+    componentDidMount(){
+      this.props.currentUserFetch()
+    }
     
       handleLoading = () => {
         if(this.props.loading) {
@@ -28,6 +25,9 @@ class Home extends Component{
     return (
         <div>
             <Header/>
+            {console.log("this: " + this)}
+            {console.log("props: " + this.props)}
+            {console.log("state: " + this.state)}
             <Stream/>
             <Footer/>
         </div>
@@ -36,12 +36,11 @@ class Home extends Component{
 }
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return({
     user: state.app.user
   });
  };
 
-const mapDispatchToProps = dispatch => ({
-  login: id => dispatch({type: 'LOGIN', id}),
-})
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+
+export default connect(mapStateToProps,{currentUserFetch})(Home)

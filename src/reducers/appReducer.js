@@ -2,7 +2,6 @@ export default function manageGame(state = {
     loading: false, 
     user: {
       current: {},
-      valid: true,
       authCompleted: false,
       errors: {},
       name: "",

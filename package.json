@@ -18,6 +18,7 @@
     "react-redux-oauth2": "^0.5.14",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-twitch-embed": "^2.1.0",
     "twitch-auth": "^4.5.5",
     "web-vitals": "^1.0.1"
   },
